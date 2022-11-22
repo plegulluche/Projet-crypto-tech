@@ -1,8 +1,8 @@
-FROM node:18
+FROM node:19-alpine
 WORKDIR /app
 COPY package.json ./
-RUN npm install -g npm@7.19.1
 RUN npm install
 COPY ./ ./
-EXPOSE 3000
+ENV PORT 3000
+EXPOSE $PORT
 CMD ["npm", "run", "dev"]
