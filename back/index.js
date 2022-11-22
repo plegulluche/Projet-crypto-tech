@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.status(200).send('hello world !!!fsefsefsef ');
+    res.status(200).send('hello world !');
 });
 
 app.listen(config.port, config.host, (e)=> {
