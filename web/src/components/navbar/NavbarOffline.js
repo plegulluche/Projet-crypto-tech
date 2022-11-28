@@ -15,7 +15,14 @@ class NavbarOffline extends Component {
 
     handleChange(checked) {
         this.setState({ checked });
-    }
+        if (this.state.checked === false) {
+            this.props.setTheme("dark");
+        } else {
+            this.props.setTheme("light");
+        }
+    };
+
+
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="nav">
@@ -47,7 +54,7 @@ class NavbarOffline extends Component {
                                 activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
                                 height={20}
                                 width={48}
-                                className="haha"
+                                className="switch"
                                 id="material-switch"
                             />
                             <Nav.Link style={{ color: "#e5e5e5" }} href="/login">Login</Nav.Link>

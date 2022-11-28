@@ -3,6 +3,23 @@
   height: 100%;
 }
 
+:root {
+  --font-color: #1A2C43;
+  --background-color: #e5e5e5;
+}
+
+[data-theme="dark"] {
+  --font-color: #e5e5e5;
+  --background-color: rgb(31, 37, 56, 82);
+  --test: 5px;
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--font-color) !important;
+}
+
+
 /* .App {
   text-align: center;
 }

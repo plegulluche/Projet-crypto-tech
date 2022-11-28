@@ -1,11 +1,30 @@
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavbarOffline from './components/navbar/NavbarOffline';
 
 function App() {
+  // const [theme, setTheme] = useState('light');
+  const [theme, settheme] = useState("light")
+
+  useEffect(() => {
+    if (theme === "dark") {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, [theme]);
+
   return (
-    <NavbarOffline />
+    <div>
+      <NavbarOffline settheme={settheme} />
+      <p>
+        {theme}
+      </p>
+    </div>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
