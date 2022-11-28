@@ -6,7 +6,7 @@ import NavbarOffline from './components/navbar/NavbarOffline';
 
 function App() {
   // const [theme, setTheme] = useState('light');
-  const [theme, settheme] = useState("light")
+  const [theme, setTheme] = useState("light")
 
   useEffect(() => {
     if (theme === "dark") {
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <NavbarOffline settheme={settheme} />
+      <NavbarOffline setTheme={setTheme} />
       <p>
         {theme}
       </p>

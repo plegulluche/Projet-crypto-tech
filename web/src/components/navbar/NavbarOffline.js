@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Switch from "react-switch";
-import moonIcon from './moon.png'
 
 class NavbarOffline extends Component {
     constructor() {
