@@ -13,42 +13,41 @@ import Articles from './pages/Articles';
 import Preferences from './pages/Preferences';
 
 function App() {
-  // const [theme, setTheme] = useState('light');
-  const [theme, setTheme] = useState(localStorage.getItem("theme"))
-  const [isLogged, setIsLogged] = useState(false)
-  const [language, setLanguage] = useState(localStorage.getItem("language"))
-
-  useEffect(() => {
-    if (theme === "dark") {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("language", 1)
-      setLanguage(1)
-    } else {
-      localStorage.setItem("theme", "light");
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("language", 0)
-      setLanguage(0)
+    const [theme, setTheme] = useState(localStorage.getItem("theme")) //faire une verification si user connecté pour recup dans localstorage ou la db
+    const [isLogged, setIsLogged] = useState(false) //appeler le back pour vérifier si connecté
+    const [language, setLanguage] = useState(localStorage.getItem("language"));
+    if (document.documentElement.getAttribute("data-theme") === null) {
+        localStorage.setItem("language", 0)
     }
-  }, [theme]);
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("language", 1)
+            setLanguage(1)
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            localStorage.setItem("language", 0)
+            setLanguage(0)
+        }
+    }, [theme]);
 
-  return (
-    <BrowserRouter>
-      {isLogged ? <NavbarOnline setTheme={setTheme} language={language} /> : <NavbarOffline setTheme={setTheme} language={language} />}
-      <Routes>
-          <Route path='/' element={<Home language={language} />} />
-          <Route path='/register' element={isLogged ? <Navigate to="/" /> : <Register language={language} />} />
-          <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login language={language}/>} />
-          <Route path="*" element={<NoPage language={language} />} />
-          {/* Protected Routes starts from here */}
-          <Route element={<ProtectedRoutes auth={isLogged}/>}>
-            <Route path='/dashboard' element={<Dashboard language={language} />} />
-            <Route path='/articles' element={<Articles language={language} />} />
-            <Route path='/preferences' element={<Preferences language={language} />} />
-          </Route>
-        </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            {isLogged ? <NavbarOnline setTheme={setTheme} language={language} /> : <NavbarOffline setTheme={setTheme} language={language} />}
+            <Routes>
+                <Route path='/' element={<Home language={language} />} />
+                <Route path='/register' element={isLogged ? <Navigate to="/" /> : <Register language={language} />} />
+                <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login language={language} />} />
+                <Route path="*" element={<NoPage language={language} />} />
+                {/* Protected Routes starts from here */}
+                <Route element={<ProtectedRoutes auth={isLogged} />}>
+                    <Route path='/dashboard' element={<Dashboard language={language} />} />
+                    <Route path='/articles' element={<Articles language={language} />} />
+                    <Route path='/preferences' element={<Preferences language={language} />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
