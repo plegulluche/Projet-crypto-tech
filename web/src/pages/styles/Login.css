@@ -13,9 +13,8 @@
     border: 1px solid var(--border-color-div);
     max-width: 520px;
     min-width: 10px;
-    max-height: 630px;
-    min-height: 50px;
-    height: 630px;
+    max-height: max-content;
+    min-height: min-content;
     width: 520px;
     border-radius: 68px;
     border-left: 1px solid rgba(255, 255, 255, .3);
@@ -27,13 +26,12 @@
     position: relative;
     color: var(--font-color);
 
-
     margin: auto;
     margin-top: 4%;
 }
 
 .email-input {
-    margin-top: 5rem;
+    margin-top: 10%;
     text-align: left;
 }
 
@@ -88,4 +86,5 @@
     padding-right: 15%;
     font-size: 20px;
     width: 100%;
+    margin-bottom: 5%;
 }
