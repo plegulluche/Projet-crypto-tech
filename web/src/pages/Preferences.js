@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import './styles/Register.css'
 
-class Register extends Component {
+class Preferences extends Component {
     constructor(props) {
         super(props);
     }
     render() { 
         return ( 
-            <div className='register'>
+            <div>
+                Preferences
             </div>
          );
     }
 }
  
-export default Register;
+export default Preferences;

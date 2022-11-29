@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Switch from "react-switch";
 
-class NavbarOffline extends Component {
+class NavbarOnline extends Component {
     constructor() {
         super();
         if (localStorage.getItem("theme") === "dark") {
@@ -45,6 +45,8 @@ class NavbarOffline extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link style={{ color: "#e5e5e5" }} href="/">Home</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/dashboard">Dashboard</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/articles">Articles</Nav.Link>
                         </Nav>
                         <Nav>
                             <Switch
@@ -62,8 +64,7 @@ class NavbarOffline extends Component {
                                 className="switch"
                                 id="material-switch"
                             />
-                            <Nav.Link style={{ color: "#e5e5e5" }} href="/login">Login</Nav.Link>
-                            <Nav.Link style={{ color: "#e5e5e5" }} href="/register">Register</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/preferences">Rafael Adragna</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -72,4 +73,4 @@ class NavbarOffline extends Component {
     }
 }
 
-export default NavbarOffline;
+export default NavbarOnline;

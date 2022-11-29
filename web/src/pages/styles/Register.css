@@ -1,0 +1,16 @@
+.register {
+    max-width: 520px;
+    min-width: 10px;
+    width: 520px;
+    max-height: 630px;
+    min-height: 50px;
+    height: 630px;
+    background: #1A2C43;
+    border: 1px solid #E5E5E5;
+    border-radius: 68px;
+    
+
+    margin: auto;
+    margin-top: 4%;
+
+}
