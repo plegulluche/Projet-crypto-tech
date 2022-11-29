@@ -1,0 +1,101 @@
+:root {
+    --background-div-color: #e5e5e5;
+    --border-color-div: #868686;
+}
+
+[data-theme="dark"] {
+    --background-div-color: #1A2C43;
+    --border-color-div: #e5e5e5;
+}
+
+.loginform {
+    background: var(--background-div-color);
+    border: 1px solid var(--border-color-div);
+    max-width: 520px;
+    min-width: 10px;
+    max-height: 630px;
+    min-height: 50px;
+    /*padding: 5rem;*/
+    height: 630px;
+    width: 520px;
+    border-radius: 68px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    text-align: center;
+    position: relative;
+    color: var(--font-color);
+
+
+    margin: auto;
+    margin-top: 4%;
+}
+
+.email-input {
+    margin-top: 5rem;
+    text-align: left;
+}
+
+.password-input {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.descr {
+    width: 100%;
+}
+
+.email-text {
+
+}
+
+.password-text {
+
+}
+
+.block {
+    display: flex;
+    /*margin-left: 20rem;*/
+}
+
+.test-button {
+    border-radius: 50px;
+    background: var(--background-div-color);
+    color: var(--font-color);
+    border: 1px solid var(--border-color-div);
+    width: 100px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.google-btn {
+    position: center;
+    padding-left: 8.5rem;
+}
+
+.login-title {
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 46px;
+    padding-top: 1.4rem;
+    padding-bottom: 2rem;
+}
+
+.top-form {
+    width: 100%;
+    border-bottom: 1px solid;
+    padding-bottom: 3rem;
+}
+
+.bottom-form {
+    padding-left: 15%;
+    padding-right: 15%;
+    font-size: 20px;
+    width: 100%;
+}
