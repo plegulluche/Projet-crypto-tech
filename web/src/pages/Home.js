@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import HomeOffline from './HomeOffline';
+import HomeOnline from './HomeOnline';
 
 class Home extends Component {
     constructor(props) {
@@ -7,7 +9,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                Home
+                {this.props.isLogged ? <HomeOnline language={this.props.language} /> : <HomeOffline language={this.props.language} /> }
             </div>
         );
     }

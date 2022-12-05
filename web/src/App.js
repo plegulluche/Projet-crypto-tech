@@ -35,7 +35,7 @@ function App() {
         <BrowserRouter>
             {isLogged ? <NavbarOnline setTheme={setTheme} language={language} /> : <NavbarOffline setTheme={setTheme} language={language} />}
             <Routes>
-                <Route path='/' element={<Home language={language} />} />
+                <Route path='/' element={<Home language={language} isLogged={isLogged} />} />
                 <Route path='/register' element={isLogged ? <Navigate to="/" /> : <Register language={language} />} />
                 <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login language={language} />} />
                 <Route path="*" element={<NoPage language={language} />} />
