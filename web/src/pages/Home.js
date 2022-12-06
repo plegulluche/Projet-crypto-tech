@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import CryptoSummary from '../components/crypto_widget/CryptoSummary';
+import CryptoTrending from '../components/crypto_widget/CryptoTrending';
 import './styles/Home.css'
 
-const BTC = "-2.3112354"; 
+const BTC = "-2.3112354";
 const LTC = "+3.2645684";
 const ETH = "+8.2791312";
 const BNB = "-3.5132654";
@@ -20,6 +21,14 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <CryptoTrending
+                    cryptoFirst="ETH"
+                    cryptoSecond="LTC"
+                    cryptoThird="BTC"
+                    cryptoPercentageFirst={parseFloat(ETH).toFixed(2)}
+                    cryptoPercentageSecond={parseFloat(LTC).toFixed(2)}
+                    cryptoPercentageThird={parseFloat(BTC).toFixed(2)}
+                />
                 <div className='cryptoWidgetPos'>
                     <CryptoSummary cryptoName="BTC" cryptoPercentage={parseFloat(BTC).toFixed(2)} isLogged={true} />
                     <CryptoSummary cryptoName="LTC" cryptoPercentage={parseFloat(LTC).toFixed(2)} isLogged={true} />

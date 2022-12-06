@@ -13,6 +13,81 @@
   --card-background: #1A2C43;
 }
 
+.trending {
+  margin-top: 2%;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 32rem;
+  height: 12rem;
+  background-color: var(--card-background);
+  max-height: max-content;
+  min-height: min-content;
+  border-radius: 35px;
+}
+
+.tTitle {
+  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  color: var(--card-color);
+}
+
+.tIcon {
+  margin-right: 15px;
+}
+
+.tCryptos {
+  /* margin-left: 8%;
+  margin-right: ; */
+  box-sizing: border-box;
+  padding-right: 35px;
+  padding-left: 35px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 550;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
+
+.tSpacing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.upTrend {
+  justify-content: center;
+  color: #09C633;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 45px;
+}
+
+.downTrend {
+  justify-content: center;
+  color: #E70000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 45px;
+}
+
 .cards {
   width: 12rem;
   height: 16rem;
@@ -77,7 +152,8 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 10px;
+  color: var(--card-color);
+  font-size: 13px;
   line-height: 39px;
 }
 

@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import './CryptoWidget.css'
 import logo from './bitcoin.png'
+import CryptoPercentage from './CryptoPercentage';
 
 class CryptoSummary extends Component {
-    constructor(props) {
-        super(props);
-        if (this.props.cryptoPercentage.charAt(0) === '-')
-            this.state = { check: false };
-        else
-            this.state = { check: true };
-    }
     render() {
         return (
             <div className='cards'>
@@ -19,15 +13,7 @@ class CryptoSummary extends Component {
                 </div>
                 {this.props.isLogged === true ?
                     <div>
-                        {this.state.check === true ?
-                            <div className='upCrypto'>
-                                <p>{this.props.cryptoPercentage}%</p><p className='cryptoDays'>/7d</p>
-                            </div>
-                            :
-                            <div className='downCrypto'>
-                                <p>{this.props.cryptoPercentage}%</p><p className='cryptoDays'>/7d</p>
-                            </div>
-                        }
+                        <CryptoPercentage percentage={this.props.cryptoPercentage} trend="/7d" />
                         <div className='cryptoValue'>
                             $16,309.92
                         </div>
