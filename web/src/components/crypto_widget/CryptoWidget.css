@@ -13,6 +13,27 @@
   --card-background: #1A2C43;
 }
 
+.articles {
+  margin-top: 2%;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 50rem;
+  height: 12rem;
+  background-color: var(--card-background);
+  max-height: max-content;
+  min-height: min-content;
+  border-radius: 35px;
+}
+
+.aSpacing {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
 .trending {
   margin-top: 2%;
   box-sizing: border-box;
@@ -39,6 +60,8 @@
 
 .tIcon {
   margin-right: 15px;
+  width:32px;
+  height: 32px;
 }
 
 .tCryptos {
