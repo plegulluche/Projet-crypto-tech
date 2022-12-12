@@ -23,8 +23,10 @@ function App() {
         if (theme === "dark") {
             document.documentElement.setAttribute("data-theme", "dark");
             localStorage.setItem("language", 1)
+            localStorage.setItem("theme", "dark")
             setLanguage(1)
         } else {
+            localStorage.setItem("theme", "light")
             document.documentElement.setAttribute("data-theme", "light");
             localStorage.setItem("language", 0)
             setLanguage(0)
