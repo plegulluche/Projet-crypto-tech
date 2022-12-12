@@ -1,3 +1,39 @@
+.crypto-page {
+    width: 100vw;
+    height: calc(100vh - 66px);
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.crypto-container {
+    display: grid;
+    grid-template-columns: 70vw 30vw;
+    overflow-y: hidden;
+}
+
+.left {
+    padding: 20px;
+    background-color: red;
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+}
+
+.right {
+    background-color: blue;
+}
+
+.devise {
+    background-color: green;
+}
+
+.chart {
+    background-color: yellow;
+}
+
+.market {
+    background-color: purple;
+}
+
 .crypto-head {
 
 }
@@ -31,4 +67,7 @@
 
 .crumb {
     display: inline-block;
+}
+.crypto-head > p {
+    margin-bottom: 0;
 }

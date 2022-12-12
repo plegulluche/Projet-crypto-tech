@@ -9,8 +9,9 @@ class Dashboard extends Component {
     }
     render() {
         return (
-            <div>
+            <div className={"crypto-page"}>
                 <div className="crypto-head">
+
                     <nav className="crypto-nav">
                         <ol>
                             <li className="crumb">Cryptos:</li>
@@ -24,18 +25,26 @@ class Dashboard extends Component {
                     <p>English</p>
                     <p>USD</p>
                 </div>
-
-                <div className="crypto-body">
-                    <div className="crypto-tab">
-                        <div>
-                            <th>BTC/EUR</th>
-                            <th>BTC/USD</th>
-                            <th>ETH/EUR</th>
-                            <th>ETH/USD</th>
-                        </div>
+                <div className={"crypto-container"}>
+                    <div className={"left"}>
+                        <div className={"devise"}>
+                            <div className="crypto-body">
+                                <div className="crypto-tab">
+                                    <div>
+                                        <th>BTC/EUR</th>
+                                        <th>BTC/USD</th>
+                                        <th>ETH/EUR</th>
+                                        <th>ETH/USD</th>
+                                    </div>
+                                </div>
+                                <tbody>
+                                </tbody>
+                            </div>
+                            </div>
+                        <div className={"chart"}>. </div>
+                        <div className={"market"}>. </div>
                     </div>
-                    <tbody>
-                    </tbody>
+                    <div className={"right"}>RIGHT</div>
                 </div>
             </div>
         );
