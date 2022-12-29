@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 
 const app = express();
@@ -23,21 +25,10 @@ app.use('/api/v1/users', userRouter);
 
 //MIDDLE WARE TO HANDLE NON HANDLED ROUTES
 app.all('*', (req, res, next) => {
-  res.status(404).json({
-    status: 'fail',
-    message: `Can't find ${req.originalUrl} on this server !`,
-  });
+  next(new AppError(`Can't find ${req.originalUrl} on this sever !`, 404));
 });
 
 // GLOBAL ERROR HANDLING MIDDLEWARE
-app.use((err, req, res, next) => {
-  err.statusCode = err.statusCode || 500;
-  err.status = err.status || 500;
-
-  res.status(err.statusCode).json({
-    status: err.status,
-    message: err.message,
-  });
-});
+app.use(globalErrorHandler);
 
 module.exports = app;
