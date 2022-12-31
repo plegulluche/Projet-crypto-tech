@@ -9,10 +9,8 @@ const mongoose = require('mongoose');
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose.connect(DB, {
-    useNewUrlParser: true,})
-    .then(() => {
-        console.log('DB connection successfull!')
-    });
+    useNewUrlParser: true,
+}).then(() => {console.log('DB connection successfull!')});
 
 // set url as const
 const coinMarKey = process.env.COINMCAP_API_KEY;
@@ -36,7 +34,6 @@ getData = async (url = '', apiKey='') => {
         const data = Object.assign(x,y)
         GlobalStats.remove({}, function(err) {console.log('collection removed') });
         GlobalStats.create(data);
-        console.log(data)
     } catch (err){
         console.log(err)
     }
