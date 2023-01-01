@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-const userShema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   firstname: {
     type: String,
     required: [true, 'Please state your firstname'],
@@ -36,9 +36,12 @@ const userShema = new mongoose.Schema({
       message: 'Passwords are not the same !',
     },
   },
+  passwordChangedAt: {
+    type: Date,
+  },
 });
 
-userShema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
   //Only run this function if password was actually modified
   if (!this.isModified('password')) return next();
 
@@ -52,13 +55,25 @@ userShema.pre('save', async function (next) {
 
 // INSTANCE METHOD (available on all documents of a collection)
 // CHECK IF A GIVEN PASSWORD IS THE SAME STORED IN THE DOCUMENT
-userShema.methods.correctPassword = async function (
+userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-const User = mongoose.model('User', userShema);
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    return JWTTimestamp < changedTimestamp;
+  }
+  // FALSE MEANS NOT CHANGED
+  return false;
+};
+
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
