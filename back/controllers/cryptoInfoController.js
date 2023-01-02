@@ -1,10 +1,7 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-
 const CryptoInfo = require('./../models/cryptoInfoModel.js');
-
 const dotenv = require('dotenv');
 dotenv.config({path:"./../configNabil.env"});
-
 const mongoose = require('mongoose');
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
@@ -43,6 +40,7 @@ getData = async (url = '', apiKey='') => {
         console.log(err)
     }
 })();
+
 
 
 
