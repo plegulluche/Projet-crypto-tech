@@ -65,6 +65,13 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
+userSchema.pre('save', function (next) {
+  if (!this.isModified('password') || this.isNew) return next();
+  // the - 1000 ms is here to ensure that the token is issued AFTER the password has been changed
+  this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
+
 // INSTANCE METHOD (available on all documents of a collection)
 // CHECK IF A GIVEN PASSWORD IS THE SAME STORED IN THE DOCUMENT
 userSchema.methods.correctPassword = async function (
