@@ -1,0 +1,216 @@
+.crypto-page {
+    width: 100vw;
+    height: calc(100vh - 66px);
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.crypto-container {
+    display: grid;
+    grid-template-columns: 70vw 30vw;
+    overflow-y: hidden;
+}
+.crypto-nav {
+    justify-content: space-between;
+}
+.crypto-head {
+    display: flex;
+}
+
+.english-usd {
+    display: flex;
+    margin-left: 15rem;
+}
+
+.usd {
+    margin-left: 20px;
+}
+
+.info-nav {
+    display: inline;
+}
+
+.crumb {
+    display: inline-block;
+    float: left;
+    margin-left: 2rem;
+    font-size: small;
+}
+
+.left {
+    padding: 20px;
+    /*background-color: var(--background-color) !important;*/
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+}
+
+.right {
+    padding-left: 3rem;
+    background-color: var(--background-color) !important;
+}
+
+.right-top-info {
+    margin-top: 2%;
+    box-sizing: border-box;
+    padding: 15px;
+    width: 20rem;
+    height: 12rem;
+    background-color: var(--card-background);
+    max-height: max-content;
+    min-height: min-content;
+    border-radius: 35px;
+}
+
+.right-bottom-info {
+    margin-top: 7%;
+    box-sizing: border-box;
+   padding: 20px;
+    width: 20rem;
+    height: 24rem;
+    background-color: var(--card-background);
+    max-height: max-content;
+    min-height: min-content;
+    border-radius: 35px;
+    display: grid;
+    grid-template-rows: 1fr 40px 1fr;
+    overflow-x: scroll;}
+
+.price-amount {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.price {
+}
+
+.price-amount-bis {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price_cell {
+    text-align: center;
+}
+
+.data {
+
+}
+
+.data-column {
+
+}
+
+.mid-data {
+    text-align: center;
+}
+.mid-data-second {
+    font-size: x-small;
+}
+
+.buy-sell {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.info2{
+    text-align: center;
+}
+
+.amount-total {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.buy-line {
+    display: flex;
+    justify-content: center;
+}
+
+.plus-minus {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.devise {
+    color: white;
+    background-color: #1A2C43;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+    border-bottom: solid;
+}
+
+.devise > div:hover {
+    background-color: #0b4693;
+}
+
+.chart {
+    color: white;
+    background-color: #1A2C43;
+}
+
+.market {
+    margin-top: 10px;
+    background-color: var(--card-background);
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    border-radius: 10px;
+    height: 8rem;
+
+}
+
+.market-column {
+    display: grid;
+    grid-template-rows: 20px 1fr;
+    text-align: center;
+}
+
+.one:hover {
+    background-color: #1A2C43;
+}
+
+.crumb ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.crypto-head > p {
+    margin-bottom: 0;
+}
+
+.buy-button {
+background-color: green;
+}
+
+.plus-button {
+    background-color: #0b4693;
+}
+
+.buy {
+background-color: green;
+}
+
+.minus-button {
+    background-color: #0b4693;
+
+}
+
+.sell-button {
+    background-color: #E70000;
+}

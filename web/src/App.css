@@ -6,11 +6,13 @@
 :root {
   --font-color: #1A2C43;
   --background-color: #C6C6C6;
+  --rli: red;
 }
 
 [data-theme="dark"] {
   --font-color: #e5e5e5;
   --background-color: rgb(31, 37, 56, 82);
+  --rli: orange;
 }
 
 body {

@@ -8,7 +8,7 @@ import Login from './pages/Login.js'
 import Register from './pages/Register.js'
 import NoPage from './pages/NoPage.js'
 import ProtectedRoutes from './components/routes/ProtectedRoutes.js';
-import Dashboard from './pages/Dashboard';
+import Index from './pages/dashboard';
 import Articles from './pages/Articles';
 import Preferences from './pages/Preferences';
 
@@ -43,7 +43,7 @@ function App() {
                 <Route path="*" element={<NoPage language={language} />} />
                 {/* Protected Routes starts from here */}
                 <Route element={<ProtectedRoutes auth={isLogged} />}>
-                    <Route path='/dashboard' element={<Dashboard language={language} />} />
+                    <Route path='/dashboard' element={<Index language={language} />} />
                     <Route path='/articles' element={<Articles language={language} />} />
                     <Route path='/preferences' element={<Preferences language={language} />} />
                 </Route>
