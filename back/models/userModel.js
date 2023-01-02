@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
@@ -44,6 +45,8 @@ const userSchema = new mongoose.Schema({
   passwordChangedAt: {
     type: Date,
   },
+  passwordResetToken: String,
+  passwordResetExpires: Date,
 });
 
 userSchema.pre('save', async function (next) {
@@ -67,6 +70,8 @@ userSchema.methods.correctPassword = async function (
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
+// INSTANCE METHOD
+// CHECK IF THE PASSWORD HAS CHANGED AFTER THE JWT TOKEN WAS ISSUED
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
@@ -77,6 +82,25 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   }
   // FALSE MEANS NOT CHANGED
   return false;
+};
+
+// INSTANCE METHOD
+//
+userSchema.methods.createPasswordResetToken = function () {
+  const resetToken = crypto.randomBytes(32).toString('hex');
+
+  this.passwordResetToken = crypto
+    .createHash('sha256')
+    .update(resetToken)
+    .digest('hex');
+
+  console.log(
+    `RESET TOKEN : ${resetToken}, passResetToken : ${this.passwordResetToken}`
+  );
+
+  this.passwordResetExpires = Date.now() + 10 * 6000;
+
+  return resetToken;
 };
 
 const User = mongoose.model('User', userSchema);
