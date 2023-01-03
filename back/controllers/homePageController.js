@@ -1,6 +1,7 @@
 const CryptoPrice = require('./../models/binanceRatesModel');
 const CryptoInfo = require('./../models/cryptoInfoModel');
 const GlobalStats = require('./../models/globalStatsModel');
+const User = require('./../models/userModel');
 
 // get rates of cryto in EUR or USDT and evolution of last 24h
 exports.getCryptoRates = async (req,res) =>  {
@@ -24,15 +25,14 @@ exports.getCryptoRates = async (req,res) =>  {
 
 exports.updateFav = async (req, res) => {
     try {
-      const fav = await Favorite.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
+      const favorite = await User.findByIdAndUpdate(req.params.id, req.body,{
+        new : true,
         runValidators: true
       });
-  
       res.status(200).json({
         status: 'success',
         data: {
-            fav
+            favorite
         }
       });
     } catch (err) {
