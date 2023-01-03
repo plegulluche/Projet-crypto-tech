@@ -48,7 +48,9 @@ class NavbarOffline extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                        <Nav.Link style={{ color: "#e5e5e5" }} href="/">{this.textLangage[this.props.language][0]}</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/">{this.textLangage[this.props.language][0]}</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/dashboard">Dashboard</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/articles">Articles</Nav.Link>
                         </Nav>
                         <Nav>
                             <Switch
