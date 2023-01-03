@@ -1,16 +1,11 @@
 :root {
   --c-value-color: rgba(26, 44, 67, 1);
   --last-days-color: rgba(26, 44, 67, 1);
-  --card-color: #1A2C43;
-  --card-background: #E5E5E5;
-
 }
 
 [data-theme="dark"] {
   --c-value-color: rgba(147, 147, 147, 0.94);
   --last-days-color: rgba(217, 217, 217, 1);
-  --card-color: #e5e5e5;
-  --card-background: #1A2C43;
 }
 
 .articles {
