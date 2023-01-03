@@ -3,7 +3,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const GlobalStats = require('./../models/globalStatsModel.js');
 
 const dotenv = require('dotenv');
-dotenv.config({path:"./../configNabil.env"});
+dotenv.config({path:"./../config.env"});
 
 const mongoose = require('mongoose');
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);

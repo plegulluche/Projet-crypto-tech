@@ -5,21 +5,21 @@ const User = require('./../models/userModel');
 
 // get rates of cryto in EUR or USDT and evolution of last 24h
 exports.getCryptoRates = async (req,res) =>  {
-        try{
-            const cryptos = await CryptoPrice.find();
-            const infos = await CryptoInfo.find();  
-            const stats = await GlobalStats.find();  
-            res.status(200).json({
-                status:'succes',
-                results: cryptos.length,
-                data:{cryptos,infos,stats}
-            })
-        } catch(err) {
-            res.status(404).json({
-                status:'fail',
-                message:err
-            });
-        }
+    try{
+        const cryptos = await CryptoPrice.findOne().sort({date:-1});
+        const infos = await CryptoInfo.find();  
+        const stats = await GlobalStats.find();  
+        res.status(200).json({
+            status:'succes',
+            results: cryptos.length,
+            data:{cryptos,infos,stats}
+        })
+    } catch(err) {
+        res.status(404).json({
+            status:'fail',
+            message:err
+        });
+    }
 };
 
 
