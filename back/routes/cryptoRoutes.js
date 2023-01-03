@@ -8,14 +8,23 @@ router.post('/signup', authController.signup);
 
 router
   .route('/')
-  .get(homePageController.getCryptoRates)/* 
+  .get(homePageController.getCryptoRates) 
+  .put(homePageController.updateFav)
+  /*
   .get(homePageController.getCryptoRates)
   .get(homePageController.getGlobalStats) */
 
 router
   .route('/dashboard')
-  .get(homePageController.getCryptoRates)/* 
+  .get(homePageController.getCryptoRates)
+  .patch(homePageController.updateFav);/* 
   .get(homePageController.getCryptoInfo)
   .get(homePageController.getGlobalStats) */
+
+  router
+  .route('/:id')
+  .get(homePageController.getCryptoRates)
+  .patch(homePageController.updateFav);
+
 
 module.exports = router;

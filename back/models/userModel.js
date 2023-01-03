@@ -35,6 +35,10 @@ const userShema = new mongoose.Schema({
       message: "Passwords are not the same !",
     },
   },
+  favorite: {
+    type: Array,
+    required:true
+  }
 });
 
 userShema.pre("save", async function (next) {

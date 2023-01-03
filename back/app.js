@@ -27,7 +27,8 @@ app.use('/api/v1/', cryptoRouter);
 
 //MIDDLE WARE TO HANDLE NON HANDLED ROUTES
 app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this sever !`, 404));
+  next(new AppError(
+    `Can't find ${req.originalUrl} on this sever !`, 404));
 });
 
 // GLOBAL ERROR HANDLING MIDDLEWARE
