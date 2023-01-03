@@ -3,10 +3,10 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const CryptoPrice = require('./../models/binanceRatesModel.js');
 
 const dotenv = require('dotenv');
-dotenv.config({path:"./../configNabil.env"});
+dotenv.config({path:"./../config.env"});
 
 const mongoose = require('mongoose');
-const DB = 'mongodb+srv://mongodb:mongodb@com.6hz1cdu.mongodb.net/com?retryWrites=true&w=majority'
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
