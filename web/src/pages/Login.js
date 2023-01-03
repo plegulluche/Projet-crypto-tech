@@ -22,6 +22,7 @@ function Login(props) {
             localStorage.setItem("jwt", response.data.token)
             localStorage.setItem("logged", true)
             props.setIsLogged(true)
+            window.location = '/';
         }).catch(function (error) {
             console.log(error)
         })

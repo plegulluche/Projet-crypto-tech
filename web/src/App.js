@@ -38,8 +38,8 @@ function App() {
             {isLogged === "true" ? <NavbarOnline setTheme={setTheme} language={language} /> : <NavbarOffline setTheme={setTheme} language={language} />}
             <Routes>
                 <Route path='/' element={<Home language={language} isLogged={isLogged} />} />
-                <Route path='/register' element={isLogged ? <Navigate to="/" /> : <Register language={language} />} />
-                <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login setIsLogged={setIsLogged} isLogged={isLogged} />} />
+                <Route path='/register' element={isLogged === "true" ? <Navigate to="/" /> : <Register language={language} />} />
+                <Route path='/login' element={isLogged === "true" ? <Navigate to="/" /> : <Login setIsLogged={setIsLogged} isLogged={isLogged} />} />
                 <Route path='/dashboard' element={<Index language={language} isLogged={isLogged} />} />
                 <Route path='/articles' element={<Articles language={language} isLogged={isLogged} />} />
                 <Route path="*" element={<NoPage language={language} />} />

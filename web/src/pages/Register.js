@@ -11,7 +11,7 @@ class Register extends Component {
             ["REGISTER", "Email adress :", "Password :", "RePassword :", "Create Account"],
             ["S'INSCRIRE", "Adresse mail :", "Mot de passe :", "Re Mot de passe", "S'inscrire"],
         ];
-        this.state = ({ show: false, error: "" })
+        this.state = ({ show: false })
         this.buttonClick = this.buttonClick.bind(this)
         this.setShow = this.setShow.bind(this)
     }

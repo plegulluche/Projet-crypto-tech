@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/Articles.css'
 import News from '../components/news/News.js';
+import axios from 'axios';
 
 const testArticle = {
     "source": {
@@ -16,45 +17,82 @@ const testArticle = {
     "content": "The cryptocurrency market has suffered several significant setbacks during 2022, but some of its assets have performed better than others, particularly in terms of returns per month, a new yearly rep… [+2788 chars]"
 }
 
-class Articles extends Component {
-    constructor(props) {
-        super(props);
-        this.handleKeyDown = this.handleKeyDown.bind(this)
-        this.goToArticle = this.goToArticle.bind(this)
-    }
-    handleKeyDown = event => {
-        console.log('User pressed: ', event.key);
+function Articles(props) {
 
-        // console.log(message);
+    const [bigArticle, setBigArticle] = useState([])
+    const [latestArticle0, setLatestArticle0] = useState([])
+    const [latestArticle1, setLatestArticle1] = useState([])
+    const [latestArticle2, setLatestArticle2] = useState([])
+    const [latestArticle3, setLatestArticle3] = useState([])
 
-        if (event.key === 'Enter') {
-            // 👇️ your logic here
-            console.log('Enter key pressed ✅');
-        }
-    };
-    goToArticle = () => {
-        const url = testArticle.url;
+    React.useEffect(() => {
+        axios.get('https://newsapi.org/v2/everything?q=+"crypto"+"cryptocurrency"&sortBy=popularity&apiKey=7861cd53deef43b090afdcae5a5ffc6f')
+            .then(function (response) {
+                setBigArticle(response.data.articles[0])
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        axios.get('https://newsapi.org/v2/everything?q=+"crypto"+"cryptocurrency"&sortBy=publishedAt&apiKey=7861cd53deef43b090afdcae5a5ffc6f')
+            .then(function (response) {
+                setLatestArticle0(response.data.articles[0])
+                setLatestArticle1(response.data.articles[1])
+                setLatestArticle2(response.data.articles[2])
+                setLatestArticle3(response.data.articles[3])
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }, []);
+
+    useEffect(() => {
+        const keyDownHandler = event => {
+            if (event.key === 'Enter' && document.getElementById("message").value !== "") {
+                let search = document.getElementById("message").value;
+                event.preventDefault();
+                axios.get('https://newsapi.org/v2/everything?q=+"crypto"+"'+search+'"&sortBy=publishedAt&apiKey=7861cd53deef43b090afdcae5a5ffc6f')
+                .then(function (response) {
+                    setLatestArticle0(response.data.articles[0])
+                    setLatestArticle1(response.data.articles[1])
+                    setLatestArticle2(response.data.articles[2])
+                    setLatestArticle3(response.data.articles[3])
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+            }
+        };
+
+        document.addEventListener('keydown', keyDownHandler);
+
+        return () => {
+            document.removeEventListener('keydown', keyDownHandler);
+        };
+    }, []);
+
+    const goToArticle = () => {
+        const url = bigArticle.url;
         window.open(url, '_blank');
     }
-    render() {
-        return (
+
+    return (
+        <div>
             <div className='articlesPos'>
                 <div className='mainArticle'>
                     <input
-                        onKeyDown={this.handleKeyDown}
                         id="message"
                         name="message"
                         className='articleSearch'
-                        placeholder={(this.props.isLogged) ? "Write a Keyword for a precise research" : "Sign Up to get access to the search bar"}
-                        disabled={(this.props.isLogged) ? "" : "disabled"}
+                        placeholder={props.isLogged === "true" ? "Write a Keyword for a precise research" : "Sign Up to get access to the search bar"}
+                        disabled={props.isLogged === "true" ? "" : "disabled"}
                     />
-                    <div onClick={this.goToArticle} className='infoMainArticle'>
+                    <div onClick={() => goToArticle()} className='infoMainArticle'>
                         <div className='titleMainArticle'>
-                            {testArticle.title}
+                            {bigArticle.title}
                         </div>
-                        <img className='imgMainArticle' src={testArticle.urlToImage} alt="" />
+                        <img className='imgMainArticle' src={bigArticle.urlToImage} alt="" />
                         <div className='descriptionMainArticle'>
-                            {testArticle.description}
+                            {bigArticle.description}
                         </div>
                     </div>
                 </div>
@@ -62,14 +100,14 @@ class Articles extends Component {
                     <div className='trendHeader'>
                         Trending Now
                     </div>
-                    <News />
-                    <News />
-                    <News />
-                    <News />
+                    <News latestArticle={latestArticle0} />
+                    <News latestArticle={latestArticle1} />
+                    <News latestArticle={latestArticle2} />
+                    <News latestArticle={latestArticle3} />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Articles;

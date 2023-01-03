@@ -13,12 +13,12 @@ class CryptoSummary extends Component {
                 </div>
                 {this.props.isLogged === "true" ?
                     <div>
-                        <CryptoPercentage percentage={this.props.cryptoPercentage} trend="/7d" />
+                        <CryptoPercentage percentage={this.props.cryptoPercentage} trend="/24h" />
                         <div className='cryptoValue'>
                             $16,309.92
                         </div>
                         <div className='lastDays'>
-                            Last 7 days
+                            Last 24 hours
                         </div>
                     </div>
                     :

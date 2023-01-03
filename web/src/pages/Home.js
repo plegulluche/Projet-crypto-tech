@@ -16,21 +16,18 @@ const SOL = "-3.509876532";
 const MATIC = "-1.912546874";
 
 class Home extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
     render() {
         return (
             <div>
                 <div className='topWidgets'>
-                    <CryptoTrending
+                    {/* <CryptoTrending
                         cryptoFirst="ETH"
                         cryptoSecond="LTC"
                         cryptoThird="BTC"
                         cryptoPercentageFirst={parseFloat(ETH).toFixed(2)}
                         cryptoPercentageSecond={parseFloat(LTC).toFixed(2)}
                         cryptoPercentageThird={parseFloat(BTC).toFixed(2)}
-                    />
+                    /> */}
                     <CryptoArticles />
                 </div>
                 <div className='cryptoWidgetPos'>
