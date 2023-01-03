@@ -78,6 +78,13 @@ userSchema.pre('save', function (next) {
   next();
 });
 
+// MIDDLEWARE TO EXCLUDE INACTIVE USERS FROM A QUERY
+userSchema.pre(/^find/, function (next) {
+  // this points to the current query
+  this.find({ active: { $ne: false } });
+  next();
+});
+
 // INSTANCE METHOD (available on all documents of a collection)
 // CHECK IF A GIVEN PASSWORD IS THE SAME STORED IN THE DOCUMENT
 userSchema.methods.correctPassword = async function (
