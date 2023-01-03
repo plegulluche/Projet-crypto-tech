@@ -34,11 +34,11 @@ class Home extends Component {
                     <CryptoArticles />
                 </div>
                 <div className='cryptoWidgetPos'>
-                    <CryptoSummary cryptoName="BTC" cryptoPercentage={parseFloat(BTC).toFixed(2)} isLogged={true} />
-                    <CryptoSummary cryptoName="LTC" cryptoPercentage={parseFloat(LTC).toFixed(2)} isLogged={true} />
-                    <CryptoSummary cryptoName="ETH" cryptoPercentage={parseFloat(ETH).toFixed(2)} isLogged={true} />
-                    <CryptoSummary cryptoName="BNB" cryptoPercentage={parseFloat(BNB).toFixed(2)} isLogged={true} />
-                    <CryptoSummary cryptoName="XRP" cryptoPercentage={parseFloat(XRP).toFixed(2)} isLogged={true} />
+                    <CryptoSummary cryptoName="BTC" cryptoPercentage={parseFloat(BTC).toFixed(2)} isLogged={"true"} />
+                    <CryptoSummary cryptoName="LTC" cryptoPercentage={parseFloat(LTC).toFixed(2)} isLogged={"true"} />
+                    <CryptoSummary cryptoName="ETH" cryptoPercentage={parseFloat(ETH).toFixed(2)} isLogged={"true"} />
+                    <CryptoSummary cryptoName="BNB" cryptoPercentage={parseFloat(BNB).toFixed(2)} isLogged={"true"} />
+                    <CryptoSummary cryptoName="XRP" cryptoPercentage={parseFloat(XRP).toFixed(2)} isLogged={"true"} />
                 </div>
                 <div className='cryptoWidgetPos'>
                     <CryptoSummary cryptoName="DOT" cryptoPercentage={parseFloat(DOT).toFixed(2)} isLogged={this.props.isLogged} />

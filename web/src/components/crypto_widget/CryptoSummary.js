@@ -11,7 +11,7 @@ class CryptoSummary extends Component {
                     <img className='icon' alt='' src={logo} />
                     <p className='cTitle'>{this.props.cryptoName}</p>
                 </div>
-                {this.props.isLogged === true ?
+                {this.props.isLogged === "true" ?
                     <div>
                         <CryptoPercentage percentage={this.props.cryptoPercentage} trend="/7d" />
                         <div className='cryptoValue'>

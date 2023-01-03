@@ -14,7 +14,7 @@ import Preferences from './pages/Preferences';
 
 function App() {
     const [theme, setTheme] = useState(localStorage.getItem("theme")) //faire une verification si user connecté pour recup dans localstorage ou la db
-    const [isLogged, setIsLogged] = useState(false) //appeler le back pour vérifier si connecté
+    const [isLogged, setIsLogged] = useState(localStorage.getItem("logged")) //appeler le back pour vérifier si connecté
     const [language, setLanguage] = useState(localStorage.getItem("language"));
     if (document.documentElement.getAttribute("data-theme") === null) {
         localStorage.setItem("language", 0)
@@ -35,11 +35,11 @@ function App() {
 
     return (
         <BrowserRouter>
-            {isLogged ? <NavbarOnline setTheme={setTheme} language={language} /> : <NavbarOffline setTheme={setTheme} language={language} />}
+            {isLogged === "true" ? <NavbarOnline setTheme={setTheme} language={language} /> : <NavbarOffline setTheme={setTheme} language={language} />}
             <Routes>
                 <Route path='/' element={<Home language={language} isLogged={isLogged} />} />
                 <Route path='/register' element={isLogged ? <Navigate to="/" /> : <Register language={language} />} />
-                <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login language={language} />} />
+                <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login setIsLogged={setIsLogged} isLogged={isLogged} />} />
                 <Route path='/dashboard' element={<Index language={language} isLogged={isLogged} />} />
                 <Route path='/articles' element={<Articles language={language} isLogged={isLogged} />} />
                 <Route path="*" element={<NoPage language={language} />} />
