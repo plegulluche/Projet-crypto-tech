@@ -40,11 +40,11 @@ function App() {
                 <Route path='/' element={<Home language={language} isLogged={isLogged} />} />
                 <Route path='/register' element={isLogged ? <Navigate to="/" /> : <Register language={language} />} />
                 <Route path='/login' element={isLogged ? <Navigate to="/" /> : <Login language={language} />} />
+                <Route path='/dashboard' element={<Index language={language} isLogged={isLogged} />} />
+                <Route path='/articles' element={<Articles language={language} isLogged={isLogged} />} />
                 <Route path="*" element={<NoPage language={language} />} />
                 {/* Protected Routes starts from here */}
                 <Route element={<ProtectedRoutes auth={isLogged} />}>
-                    <Route path='/dashboard' element={<Index language={language} />} />
-                    <Route path='/articles' element={<Articles language={language} />} />
                     <Route path='/preferences' element={<Preferences language={language} />} />
                 </Route>
             </Routes>
