@@ -34,10 +34,6 @@ const userShema = new mongoose.Schema({
       },
       message: "Passwords are not the same !",
     },
-  },
-  favorite: {
-    type: Array,
-    required:true
   }
 });
 
