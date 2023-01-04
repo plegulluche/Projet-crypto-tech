@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import Select from 'react-select';
 import './styles/Preferences.css';
+import Alert from 'react-bootstrap/Alert';
 import logo1 from '../components/crypto_widget/bitcoin.png';
 import logo2 from '../components/crypto_widget/ltc.png';
 import logo3 from '../components/crypto_widget/eth.png';
@@ -11,29 +12,68 @@ import logo7 from '../components/crypto_widget/ada.png';
 import logo8 from '../components/crypto_widget/shib.png';
 import logo9 from '../components/crypto_widget/sol.png';
 import logox from '../components/crypto_widget/matic.png';
-
+import axios from 'axios';
 
 function Preferences() {
-    const pref_title = ['Coin', 'Price'];
-    const [crypt, setCrypt] = useState([
-        { name: 'BTC', img: logo1, isFavorite: true },
-        { name: 'LTC', img: logo2, isFavorite: true },
-        { name: 'ETH', img: logo3, isFavorite: true },
-        { name: 'BNB', img: logo4, isFavorite: true },
-        { name: 'XRP', img: logo5, isFavorite: false },
-        { name: 'DOT', img: logo6, isFavorite: false },
-        { name: 'ADA', img: logo7, isFavorite: false },
-        { name: 'SHIB', img: logo8, isFavorite: false },
-        { name: 'SOL', img: logo9, isFavorite: false },
-        { name: 'MATIC', img: logox, isFavorite: false }
-    ]);
-    const submit = (e) => {
+    const crypto = [
+        { value: 'BTC', label: 'BTC' },
+        { value: 'DOGE', label: 'DOGE' },
+        { value: 'ETH', label: 'ETH' },
+        { value: 'BNB', label: 'BNB' },
+        { value: 'XRP', label: 'XRP' },
+        { value: 'DOT', label: 'DOT' },
+        { value: 'ADA', label: 'ADA' },
+        { value: 'SHIB', label: 'SHIB' },
+        { value: 'SOL', label: 'SOL' },
+        { value: 'MATIC', label: 'MATIC' },
+    ];
+    const [inputs, setInputs] = useState([])
+    const [verif, setVerif] = useState(false)
 
+    const submit = () => {
+        if (inputs.length !== 4)
+            setVerif(true)
+        else {
+            const token = localStorage.getItem("jwt");
+            axios.patch("http://localhost:4000/api/v1/users/updateMe",
+                { "favorites": [inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value] },
+                { headers: { "Authorization": `Bearer ${token}` } })
+                .then(function (response) {
+                    console.log(response)
+                    window.location = '/';
+                }).catch(function (error) {
+                    console.log(error)
+                })
+        }
+    }
+
+    const saveInput = (choice) => {
+        setInputs(choice)
     }
 
     return (
         <div>
-            <div className={'card-carousel'}>
+            {
+                verif === true ?
+                    <Alert variant="danger" onClose={() => setVerif(false)} dismissible>
+                        <p>
+                            You need to select 4 cryptocurrencies
+                        </p>
+                    </Alert>
+                    :
+                    <></>
+            }
+            <Select
+                isMulti
+                name="colors"
+                options={crypto}
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={(choice) => saveInput(choice)}
+            />
+            <input type={'button'} value={'submit'} className={'valid'} onClick={submit} />
+
+            {/* <div className={'card-carousel'}>
                 {crypt && crypt.map((card) => {
                     return (
                         <div className={card.isFavorite ? 'card-crypt selected' : 'card-crypt'}>
@@ -47,7 +87,7 @@ function Preferences() {
                 <input type={'button'} value={'submit'} className={'valid'} onClick={submit}>
 
                 </input>
-            </div>
+            </div> */}
         </div>
     );
 }
