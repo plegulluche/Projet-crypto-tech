@@ -1,11 +1,24 @@
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 import Chart from 'chart.js/auto'
+import axios from "axios";
 
 const ChartInfo = () => {
     const fakedate = ["28-11-2022 10:54", "USD/BTC", "Market", "Buy", 5 , 6 , 7 , 8 , 9];
     const market_title =  ["Date", "Cross", "Type", "Side", "Rate", "Amount", "Executed", "Status", "Total"];
-    const labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September"];
+    const [cryptValue, setCryptValue] = useState({});
+    const labels = "Days";
+    useEffect(() => {
+        axios.get("http://localhost:4000/api/v1/history")
+            .then(function (response) {
+                setCryptValue(response.data.data.hist);
+                console.log(response.data.data.hist);
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }, []);
+
 
     const data = {
         labels: labels,
@@ -14,7 +27,7 @@ const ChartInfo = () => {
                 label: "My First dataset",
                 backgroundColor: "rgb(255, 99, 132)",
                 borderColor: "rgb(255, 99, 132)",
-                data: [0, 10, 5, 2, 20, 30, 45, -10, 5],
+                data: [cryptValue[0].date],
             },
         ],
     };
@@ -27,7 +40,7 @@ const ChartInfo = () => {
                 <div>ETH/USD</div>
             </div>
             <div className={"chart"}>
-                <Bar data={data} />
+                <Line data={data} />
             </div>
             <div className={"market"}>{fakedate.map((x, idx) => {
                 return (
