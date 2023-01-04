@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './News.css'
 
 function News({latestArticle}) {
-    console.log("in news")
-    console.log(latestArticle)
-    console.log("in news after console log test")
     const goToArticle = () => {
         const url = latestArticle.url;
         window.open(url, '_blank');

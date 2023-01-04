@@ -30,9 +30,7 @@ const ChartInfo = () => {
 
         axios.get("http://localhost:4000/api/v1/history")
         .then(function (response) {
-            /* const temp = response.data.hist */
             setCryptValue(response.data.data.hist);
-            /* console.log(response.data.data.hist); */
         })
         .catch(function (error) {
             console.log(error)
@@ -41,8 +39,6 @@ const ChartInfo = () => {
     
     const changeSelect = (value) =>{
         setSelect(value);
-        console.log('aaa ' + value);
-        console.log('coucou');
     };
     
      var y = []

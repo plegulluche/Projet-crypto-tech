@@ -41,10 +41,8 @@ function Home({ language, isLogged }) {
         const interval = setInterval(() => {
             axios.get("http://localhost:4000/api/v1/", { headers: { "Authorization": `Bearer ${token}` } })
                 .then(function (response) {
-                    // console.log(response.data.data.cryptos.evolution24h);
                     setCryptoEvo(response.data.data.cryptos.EUR);
                     setCryptoPercentage(response.data.data.cryptos.evolution24h)
-                    // console.log(cryptoLogo[0])
                 })
                 .catch(function (error) {
                     console.log(error)

@@ -24,10 +24,8 @@ class NavbarOffline extends Component {
         this.setState({ checked });
         if (this.state.checked === false) {
             this.props.setTheme("dark");
-            console.log("dark");
         } else {
             this.props.setTheme("light");
-            console.log("light");
         }
     };
 

@@ -8,12 +8,7 @@ function Login(props) {
 
     const buttonClick = () => {
         let email = document.getElementById("email").value;
-        // console.log(email);
         let password = document.getElementById("password").value;
-        // console.log(password);
-        // if () {                                      //verif si le login s'est bien passé
-        //     this.setState({ show: true });
-        // }
         axios.post("http://localhost:4000/api/v1/users/login", {
             "email": email,
             "password": password,

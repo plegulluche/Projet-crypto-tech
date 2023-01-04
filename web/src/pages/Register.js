@@ -22,13 +22,10 @@ class Register extends Component {
 
     buttonClick() {
         let email = document.getElementById("email").value;
-        // console.log(email);
         let firstname = document.getElementById("firstname").value;
         let lastname = document.getElementById("lastname").value;
         let password = document.getElementById("password").value;
-        // console.log(password);
         let repassword = document.getElementById("repassword").value;
-        // console.log(repassword);
         if (password !== repassword) {
             this.setState({ show: true });
         }

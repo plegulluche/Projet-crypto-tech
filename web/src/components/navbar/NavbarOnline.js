@@ -37,10 +37,8 @@ function NavbarOnline({ setTheme, language }) {
         setChecked(!checked);
         if (checked === false) {
             setTheme("dark");
-            console.log("dark");
         } else {
             setTheme("light");
-            console.log("light");
         }
     };
 
