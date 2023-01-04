@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import ReactDOM from "react-dom/client";
-import {Button} from "react-bootstrap";
 
 const RightTopInfo = () => {
-    const data = [123456, 123456, 123456, 123456, 123456, 1234567];
+
     const [count, setCount] = useState(0);
 
 
