@@ -9,17 +9,11 @@ router.post('/signup', authController.signup);
 router
   .route('/')
   .get(homePageController.getCryptoRates) 
-  .put(homePageController.updateFav)
-  /*
-  .get(homePageController.getCryptoRates)
-  .get(homePageController.getGlobalStats) */
 
 router
-  .route('/dashboard')
-  .get(homePageController.getCryptoRates)
-  .patch(homePageController.updateFav);/* 
-  .get(homePageController.getCryptoInfo)
-  .get(homePageController.getGlobalStats) */
+  .route('/history')
+  .get(homePageController.getHistoric)
+
 
   router
   .route('/:id')

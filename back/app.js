@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/', cryptoRouter);
 
+
 //MIDDLE WARE TO HANDLE NON HANDLED ROUTES
 app.all('*', (req, res, next) => {
   next(new AppError(
