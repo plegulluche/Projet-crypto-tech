@@ -1,34 +1,227 @@
 :root {
-    --card-color: #e5e5e5;
-    --card-background: #1A2C43;
+  --c-value-color: rgba(26, 44, 67, 1);
+  --last-days-color: rgba(26, 44, 67, 1);
 }
-  
-  [data-theme="dark"] {
-    --card-color: #1A2C43;
-    --card-background: #E5E5E5;  
-  }
+
+[data-theme="dark"] {
+  --c-value-color: rgba(147, 147, 147, 0.94);
+  --last-days-color: rgba(217, 217, 217, 1);
+}
+
+.articles {
+  margin-top: 2%;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 50rem;
+  height: 14.2rem;
+  background-color: var(--card-background);
+  max-height: max-content;
+  min-height: min-content;
+  border-radius: 35px;
+}
+
+.aSpacing {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.trending {
+  margin-top: 2%;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 32rem;
+  height: 12rem;
+  background-color: var(--card-background);
+  max-height: max-content;
+  min-height: min-content;
+  border-radius: 35px;
+}
+
+.tTitle {
+  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  color: var(--card-color);
+}
+
+.tIcon {
+  margin-right: 15px;
+  width:32px;
+  height: 32px;
+}
+
+.tCryptos {
+  /* margin-left: 8%;
+  margin-right: ; */
+  box-sizing: border-box;
+  padding-right: 25px;
+  padding-left: 25px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 550;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
+
+.tSpacing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.upTrend {
+  justify-content: center;
+  color: #09C633;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 45px;
+}
+
+.downTrend {
+  justify-content: center;
+  color: #E70000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 45px;
+}
 
 .cards {
-    width: 12rem;
-    height: 16rem;
-    background-color: var(--card-background);
-    max-height: max-content;
-    min-height: min-content;
-    border-radius: 35px;
-    /* color: var(--card-color) */
+  width: 12rem;
+  height: 12rem;
+  background-color: var(--card-background);
+  max-height: max-content;
+  min-height: min-content;
+  border-radius: 35px;
+  /* color: var(--card-color) */
 }
 
 .cHeader {
-    margin-left: 15px;
-    margin-top: 10px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 34px;
-    color: var(--card-color)
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-top: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 34px;
+  color: var(--card-color)
 }
 
 .icon {
-    margin-right: 10px;
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+}
+
+.cTitle {
+  padding-top: 15px;
+}
+
+.upCrypto {
+  justify-content: center;
+  color: #09C633;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 39px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  height: 30px;
+}
+
+.downCrypto {
+  justify-content: center;
+  color: #E70000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 39px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 30px;
+}
+
+.cryptoDays {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  color: var(--card-color);
+  font-size: 13px;
+  line-height: 39px;
+}
+
+.cryptoValue {
+  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: var(--c-value-color);
+
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.lastDays {
+  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
+  color: var(--last-days-color)
+}
+
+.cryptoInfos {
+  text-align: center;
+}
+
+.cryptoNotLog {
+  justify-content: center;
+  justify-content: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
+  color: var(--last-days-color)
 }

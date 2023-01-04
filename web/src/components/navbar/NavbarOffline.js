@@ -24,10 +24,8 @@ class NavbarOffline extends Component {
         this.setState({ checked });
         if (this.state.checked === false) {
             this.props.setTheme("dark");
-            console.log("dark");
         } else {
             this.props.setTheme("light");
-            console.log("light");
         }
     };
 
@@ -48,7 +46,9 @@ class NavbarOffline extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                        <Nav.Link style={{ color: "#e5e5e5" }} href="/">{this.textLangage[this.props.language][0]}</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/">Home</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/dashboard">Dashboard</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/articles">Articles</Nav.Link>
                         </Nav>
                         <Nav>
                             <Switch
@@ -66,8 +66,8 @@ class NavbarOffline extends Component {
                                 className="switch"
                                 id="material-switch"
                             />
-                            <Nav.Link style={{ color: "#e5e5e5" }} href="/login">{this.textLangage[this.props.language][1]}</Nav.Link>
-                            <Nav.Link style={{ color: "#e5e5e5" }} href="/register">{this.textLangage[this.props.language][2]}</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/login">Login</Nav.Link>
+                            <Nav.Link style={{ color: "#e5e5e5" }} href="/register">Register</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
