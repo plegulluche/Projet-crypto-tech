@@ -71,10 +71,10 @@ const ChartInfo = () => {
     return (
         <div className={"left"}>
             <div className={"devise"}>
-                <div onclick={()=>changeSelect(0)} >{favs[0]}/EUR</div>
-                <div onclick={()=>changeSelect(1)} >{favs[1]}/EUR</div>
-                <div onclick={()=>changeSelect(2)} >{favs[2]}/EUR</div>
-                <div onclick={()=>changeSelect(3)} >{favs[3]}/EUR</div>
+                <div onClick={()=>changeSelect(0)} >{favs[0]}/EUR</div>
+                <div onClick={()=>changeSelect(1)} >{favs[1]}/EUR</div>
+                <div onClick={()=>changeSelect(2)} >{favs[2]}/EUR</div>
+                <div onClick={()=>changeSelect(3)} >{favs[3]}/EUR</div>
             </div>
             <div className={"chart"}>
                 <Line data={data} />
