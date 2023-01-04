@@ -61,9 +61,9 @@ const ChartInfo = () => {
         labels: y,
         datasets: [
             {
-                label: "My First dataset",
-                /* backgroundColor: "rgb(255, 99, 132)",
-                borderColor: "rgb(255, 99, 132)", */
+                label: favs[select],
+                backgroundColor: "rgb(255, 99, 132)",
+                borderColor: "rgb(255, 99, 132)",
                 data: x
             },
         ],
