@@ -17,6 +17,10 @@
     display: flex;
 }
 
+.stats {
+    color:rgb(255, 53, 53);
+}
+
 .english-usd {
     display: flex;
     margin-left: 15rem;

@@ -8,18 +8,18 @@ class CryptoSummary extends Component {
         return (
             <div className='cards'>
                 <div className='cHeader'>
-                    <img className='icon' alt='' src={logo} />
+                    <img className='icon' alt='' src={this.props.cryptoLogo} />
                     <p className='cTitle'>{this.props.cryptoName}</p>
                 </div>
                 {this.props.isLogged === "true" ?
                     <div>
                         <CryptoPercentage percentage={this.props.cryptoPercentage} trend="/24h" />
                         <div className='cryptoValue'>
-                            $16,309.92
+                            €{this.props.cryptoValue}
                         </div>
-                        <div className='lastDays'>
+                        {/* <div className='lastDays'>
                             Last 24 hours
-                        </div>
+                        </div> */}
                     </div>
                     :
                     <div className='cryptoNotLog'>

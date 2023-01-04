@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -12,7 +12,7 @@ function NavbarOnline({ setTheme, language }) {
     const [firstname, setFirstName] = useState("")
     const [lastname, setLastName] = useState("")
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (localStorage.getItem("theme") === "dark") {
             setChecked(true);
         } else {
@@ -24,7 +24,6 @@ function NavbarOnline({ setTheme, language }) {
                 const userInfos = response.data.data.data;
                 setFirstName(userInfos.firstname.charAt(0).toUpperCase() + userInfos.firstname.slice(1));
                 setLastName(userInfos.lastname.charAt(0).toUpperCase() + userInfos.lastname.slice(1));
-                console.log(userInfos)
             })
             .catch(function (error) {
                 console.log(error)

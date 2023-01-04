@@ -3,20 +3,6 @@ import './styles/Articles.css'
 import News from '../components/news/News.js';
 import axios from 'axios';
 
-const testArticle = {
-    "source": {
-        "id": null,
-        "name": "Finbold.com"
-    },
-    "author": "Ana Nicenko",
-    "title": "Top 5 best-performing cryptocurrencies by returns in 2022",
-    "description": "The cryptocurrency market has suffered several significant setbacks during 2022, but some of its assets have performed better than others, … Continued\nThe post Top 5 best-performing cryptocurrencies by returns in 2022 appeared first on Finbold.",
-    "url": "https://finbold.com/top-5-best-performing-cryptocurrencies-by-returns-in-2022/",
-    "urlToImage": "https://finbold.com/app/uploads/2022/12/Top-5-best-performing-cryptocurrencies-by-returns-in-2022.jpg",
-    "publishedAt": "2022-12-20T15:18:27Z",
-    "content": "The cryptocurrency market has suffered several significant setbacks during 2022, but some of its assets have performed better than others, particularly in terms of returns per month, a new yearly rep… [+2788 chars]"
-}
-
 function Articles(props) {
 
     const [bigArticle, setBigArticle] = useState([])
@@ -26,7 +12,7 @@ function Articles(props) {
     const [latestArticle3, setLatestArticle3] = useState([])
 
     React.useEffect(() => {
-        axios.get('https://newsapi.org/v2/everything?q=+"crypto"+"cryptocurrency"&sortBy=popularity&apiKey=7861cd53deef43b090afdcae5a5ffc6f')
+            axios.get('https://newsapi.org/v2/everything?q=+"crypto"+"cryptocurrency"&sortBy=popularity&apiKey=7861cd53deef43b090afdcae5a5ffc6f')
             .then(function (response) {
                 setBigArticle(response.data.articles[0])
             })

@@ -63,8 +63,8 @@
   /* margin-left: 8%;
   margin-right: ; */
   box-sizing: border-box;
-  padding-right: 35px;
-  padding-left: 35px;
+  padding-right: 25px;
+  padding-left: 25px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 550;
@@ -108,7 +108,7 @@
 
 .cards {
   width: 12rem;
-  height: 16rem;
+  height: 12rem;
   background-color: var(--card-background);
   max-height: max-content;
   min-height: min-content;
@@ -131,6 +131,8 @@
 
 .icon {
   margin-right: 10px;
+  width: 32px;
+  height: 32px;
 }
 
 .cTitle {
