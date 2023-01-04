@@ -34,7 +34,7 @@ function NavbarOnline({ setTheme, language }) {
     }, []);
 
     const handleChange = () => {
-        setChecked(checked);
+        setChecked(!checked);
         if (checked === false) {
             setTheme("dark");
             console.log("dark");

@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { Component, useState } from 'react';
 import Select from 'react-select';
 import './styles/Preferences.css';
 import logo1 from '../components/crypto_widget/bitcoin.png';
@@ -13,19 +13,19 @@ import logo9 from '../components/crypto_widget/sol.png';
 import logox from '../components/crypto_widget/matic.png';
 
 
-const Preferences = () => {
+function Preferences() {
     const pref_title = ['Coin', 'Price'];
     const [crypt, setCrypt] = useState([
-        {name: 'BTC', img: logo1, isFavorite: true },
-        {name: 'LTC', img: logo2, isFavorite: true },
-        {name: 'ETH', img: logo3, isFavorite: true },
-        {name: 'BNB', img: logo4, isFavorite: true },
-        {name: 'XRP', img: logo5, isFavorite: false },
-        {name: 'DOT', img: logo6, isFavorite: false },
-        {name: 'ADA', img: logo7, isFavorite: false },
-        {name: 'SHIB', img: logo8, isFavorite: false },
-        {name: 'SOL', img: logo9, isFavorite: false },
-        {name: 'MATIC', img: logox, isFavorite: false }
+        { name: 'BTC', img: logo1, isFavorite: true },
+        { name: 'LTC', img: logo2, isFavorite: true },
+        { name: 'ETH', img: logo3, isFavorite: true },
+        { name: 'BNB', img: logo4, isFavorite: true },
+        { name: 'XRP', img: logo5, isFavorite: false },
+        { name: 'DOT', img: logo6, isFavorite: false },
+        { name: 'ADA', img: logo7, isFavorite: false },
+        { name: 'SHIB', img: logo8, isFavorite: false },
+        { name: 'SOL', img: logo9, isFavorite: false },
+        { name: 'MATIC', img: logox, isFavorite: false }
     ]);
     const submit = (e) => {
 
@@ -34,21 +34,21 @@ const Preferences = () => {
     return (
         <div>
             <div className={'card-carousel'}>
-                        {crypt && crypt.map((card) => {
-                            return(
-                                    <div className={card.isFavorite?'card-crypt selected': 'card-crypt'}>
-                                                    <div className={'card-details'}>
-                                                        <img className={'crypto-pics'} src={card.img} alt={''}/>
-                                                        <p>{card.name}</p>
-                                                    </div>
-                                    </div>
-                            )
-                        })}
+                {crypt && crypt.map((card) => {
+                    return (
+                        <div className={card.isFavorite ? 'card-crypt selected' : 'card-crypt'}>
+                            <div className={'card-details'}>
+                                <img className={'crypto-pics'} src={card.img} alt={''} />
+                                <p>{card.name}</p>
+                            </div>
+                        </div>
+                    )
+                })}
                 <input type={'button'} value={'submit'} className={'valid'} onClick={submit}>
 
                 </input>
-                </div>
             </div>
+        </div>
     );
 }
 
