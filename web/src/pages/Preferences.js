@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import Select from 'react-select';
 import './styles/Preferences.css';
 import Alert from 'react-bootstrap/Alert';
-import logo1 from '../components/crypto_widget/bitcoin.png';
+/* import logo1 from '../components/crypto_widget/bitcoin.png';
 import logo2 from '../components/crypto_widget/ltc.png';
 import logo3 from '../components/crypto_widget/eth.png';
 import logo4 from '../components/crypto_widget/bnb.png';
@@ -11,7 +11,7 @@ import logo6 from '../components/crypto_widget/dot.png';
 import logo7 from '../components/crypto_widget/ada.png';
 import logo8 from '../components/crypto_widget/shib.png';
 import logo9 from '../components/crypto_widget/sol.png';
-import logox from '../components/crypto_widget/matic.png';
+import logox from '../components/crypto_widget/matic.png'; */
 import axios from 'axios';
 
 function Preferences() {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CryptoSummary from '../components/crypto_widget/CryptoSummary';
-import CryptoTrending from '../components/crypto_widget/CryptoTrending';
+/* import CryptoTrending from '../components/crypto_widget/CryptoTrending'; */
 import CryptoArticles from '../components/crypto_widget/CryptoArticles';
 import './styles/Home.css'
 import axios from 'axios';
